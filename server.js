@@ -70,6 +70,9 @@ function paraJson(linha) {
  * Lista paginada, no padrão dummyjson: ?limit=10&skip=0
  * Filtros opcionais: ?situacao=Aberta&unidadeGestora=...&ano=2026
  */
+const cors = require('cors')
+app.use(cors())
+
 app.get("/licitacoes", async (req, res) => {
   const limit = Math.min(parseInt(req.query.limit) || 30, 100);
   const skip = parseInt(req.query.skip) || 0;
